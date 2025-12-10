@@ -1,229 +1,247 @@
-📘 README – Deep Time Series Forecasting Project
-🧠 Overview
+# 🕰️ Projet de Prévision de Séries Temporelles Avancées
 
-This project focuses on building advanced forecasting models using classical statistical methods and deep learning architectures.
-It includes all stages of a modern time series pipeline—from data exploration to feature engineering, modeling, evaluation, and future forecasting.
+<div align="center">
 
-Two main workflows are included:
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
+![PyTorch](https://img.shields.io/badge/PyTorch-1.x-red)
+![Status](https://img.shields.io/badge/Status-Complété-green)
 
-✔️ Deep_Time_Series.ipynb –
+*Une solution complète pour la prévision de séries temporelles utilisant des méthodes statistiques classiques et des architectures de deep learning*
 
-A full deep learning pipeline for generic time series forecasting using architectures such as LSTM, GRU, CNN-1D, and hybrid models.
+[Vue d'ensemble](#-vue-densemble) • [Structure](#-structure-du-projet) • [Méthodologie](#-méthodologie) • [Installation](#-installation) • [Résultats](#-résultats)
 
-✔️ M5_Forecasting.ipynb –
+</div>
 
-A complete solution to the M5 Walmart Sales Forecasting challenge, combining hierarchical forecasting, exogenous features, and deep learning models.
+---
 
-📂 Project Structure
-📁 project/
-│── Deep_Time_Series.ipynb
-│── M5_Forecasting.ipynb
-│── README.md
-│── data/
-│     ├── raw/          # Original datasets
-│     ├── processed/    # Cleaned + engineered datasets
+## 📋 Table des Matières
+
+- [Vue d'ensemble](#-vue-densemble)
+- [Structure du Projet](#-structure-du-projet)
+- [Objectifs](#-objectifs)
+- [Description des Données](#-description-des-données)
+- [Méthodologie](#-méthodologie)
+- [Installation et Exécution](#-installation-et-exécution)
+- [Résultats](#-résultats)
+- [Points Forts](#-points-forts)
+- [Auteur](#-auteur)
 
-
-🎯 Objectives
-
-Build robust forecasting systems for multivariate or hierarchical time series.
-
-Compare classical and deep learning approaches:
-
-ARIMA, SARIMA, ETS, Prophet
-
-LSTM, GRU, Encoder–Decoder, CNN-1D, N-BEATS, Transformers
-
-Engineer features improving predictive power:
-
-Lags, rolling windows, seasonal indicators
-
-Fourier transformations
-
-Calendar & event features (M5)
-
-Optimize models using:
-
-Bayesian Optimization
-
-Grid / Random Search
-
-Evaluate with industry-standard metrics:
-
-RMSE, MAE, MAPE, sMAPE, WRMSSE (for M5)
-
-📊 Dataset Description
-🗂️ 1. Generic Time Series Dataset
-
-Used for exploring deep architectures:
-
-value : observed measurements
-
-timestamp : temporal index
-
-Optional covariates depending on experiment
-
-🛒 2. M5 Forecasting Dataset
-
-Provided by Walmart:
-
-30,490 hierarchical products
-
-1,941 days of sales
-
-Exogenous variables:
-
-Prices
-
-Calendar events
-
-Snap events
-
-State-level differences
-
-🔧 Methodology
-1. Data Preprocessing
-
-Handling missing timestamps
-
-Filling NA with domain-aware imputation
-
-Normalization: MinMaxScaler / StandardScaler
-
-Outlier treatment via IQR or z-score
-
-Stationarity check:
-
-ADF Test
-
-KPSS Test
-
-Optional Box-Cox transformations
-
-2. Feature Engineering
-
-Includes:
-
-Lag features: t-1, t-7, t-28
-
-Rolling statistics: mean, std, min, max
-
-Time-based features:
-
-dayofweek, month, year, holiday flags
-
-Fourier series (for seasonalities > 365)
-
-M5-specific features: price volatility, promotions
-
-3. Modeling
-🧮 Classical Models
-Model	Use Case
-ARIMA / SARIMA	Stationary or seasonal data
-Exponential Smoothing	Trend & seasonal patterns
-Prophet	Business time series
-🧠 Deep Learning Models
-Model	Description
-LSTM	Captures long temporal dependencies
-GRU	Faster and efficient variant of LSTM
-Conv1D	Extracts local temporal features
-Encoder–Decoder	Sequence-to-Sequence forecasting
-N-BEATS	Advanced deep architecture for univariate forecasting
-Transformers	SOTA method for long-range dependencies
-4. Evaluation
-
-Metrics depend on the dataset:
-
-Generic Time Series
-
-MAE
-
-RMSE
-
-MAPE
-
-sMAPE
-
-M5 Challenge
-
-WRMSSE (Weighted Root Mean Squared Scaled Error)
-
-All metrics are visualized with:
-
-Error tables
-
-Prediction vs actual plots
-
-Residual analysis charts
-
-🚀 How to Run the Project
-Prerequisites
-
-Python 3.9+
-
-Recommended hardware: GPU for deep learning models
-
-Install dependencies
-pip install -r requirements.txt
-
-Run the notebooks
-
-Launch Jupyter:
-
+---
+
+## 🌟 Vue d'ensemble
+
+Ce projet se concentre sur la construction de modèles de prévision avancés utilisant des méthodes statistiques classiques et des architectures de deep learning. Il comprend toutes les étapes d'un pipeline moderne de séries temporelles, de l'exploration des données à l'ingénierie des caractéristiques, la modélisation, l'évaluation et la prévision future.
+
+Deux workflows principaux sont inclus :
+
+### 📓 Deep_Time_Series.ipynb
+Un pipeline complet de deep learning pour la prévision de séries temporelles génériques utilisant des architectures telles que LSTM, GRU, CNN-1D et modèles hybrides.
+
+### 📊 M5_Forecasting.ipynb
+Une solution complète pour le challenge M5 de prévision des ventes Walmart, combinant la prévision hiérarchique, les caractéristiques exogènes et les modèles de deep learning.
+
+---
+
+## 📁 Structure du Projet
+
+```
+Projet_Forecasting_Series_Temporelles/
+│
+├── 📓 Deep_Time_Series.ipynb              # Pipeline deep learning pour séries temporelles génériques
+├── 📊 M5_Forecasting.ipynb                # Solution complète du challenge M5 Walmart
+├── 📋 README.md                           # Documentation du projet
+│
+├── 📂 data/                               # Dossiers de données
+│   ├── 📁 raw/                            # Données originales
+│   └── 📁 processed/                      # Données nettoyées et transformées
+│
+├── 📂 models/                             # Modèles sauvegardés (optionnel)
+└── 📂 results/                            # Résultats et visualisations (optionnel)
+```
+
+---
+
+## 🎯 Objectifs
+
+### Principaux Objectifs
+1. **Construire des systèmes de prévision robustes** pour les séries temporelles multivariées ou hiérarchiques
+2. **Comparer les approches classiques et de deep learning**
+3. **Ingénierie des caractéristiques** améliorant la puissance prédictive
+4. **Optimiser les modèles** avec des techniques avancées
+5. **Évaluer** avec des métriques standards de l'industrie
+
+### Comparaison des Modèles
+- **Approches Classiques** : ARIMA, SARIMA, ETS, Prophet
+- **Architectures Deep Learning** : LSTM, GRU, Encoder-Decoder, CNN-1D
+
+---
+
+## 📊 Description des Données
+
+### 1. 📈 Dataset de Séries Temporelles Génériques
+Utilisé pour explorer les architectures profondes :
+- **value** : mesures observées
+- **timestamp** : index temporel
+- **Variables exogènes optionnelles** selon l'expérience
+
+### 2. 🛒 Dataset M5 Forecasting
+Fourni par Walmart :
+- **30,490 produits hiérarchiques**
+- **1,941 jours de ventes**
+- **Variables exogènes** :
+  - Prix
+  - Événements calendaires
+  - Événements SNAP
+  - Différences au niveau des états
+
+---
+
+## 🔧 Méthodologie
+
+### 1. Prétraitement des Données
+- Gestion des timestamps manquants
+- Remplissage des valeurs manquantes avec imputation contextuelle
+- Normalisation : MinMaxScaler / StandardScaler
+- Traitement des valeurs aberrantes via IQR ou z-score
+- Test de stationnarité :
+  - Test ADF
+  - Test KPSS
+  - Transformations Box-Cox optionnelles
+
+### 2. Ingénierie des Caractéristiques
+**Caractéristiques temporelles :**
+- Retards : t-1, t-7, t-28
+- Statistiques glissantes : moyenne, écart-type, min, max
+- Caractéristiques basées sur le temps :
+  - Jour de la semaine, mois, année
+  - Indicateurs de vacances
+- Séries de Fourier (pour les saisonnalités > 365 jours)
+
+**Caractéristiques spécifiques M5 :**
+- Volatilité des prix
+- Indicateurs de promotion
+
+### 3. Modélisation
+
+#### 🧮 Modèles Classiques
+| Modèle | Cas d'Utilisation |
+|--------|-------------------|
+| ARIMA / SARIMA | Données stationnaires ou saisonnières |
+| Lissage Exponentiel | Tendances et modèles saisonniers |
+| Prophet | Séries temporelles commerciales |
+
+#### 🧠 Modèles Deep Learning
+| Modèle | Description |
+|--------|-------------|
+| LSTM | Capture les dépendances temporelles longues |
+| GRU | Variante plus rapide et efficace du LSTM |
+| Conv1D | Extrait les caractéristiques temporelles locales |
+| Encoder-Decoder | Prévision séquence-à-séquence |
+| N-BEATS | Architecture profonde avancée pour la prévision univariée |
+| Transformers | Méthode SOTA pour les dépendances à longue portée |
+
+### 4. Évaluation
+**Métriques selon le dataset :**
+
+**Séries Temporelles Génériques :**
+- MAE (Erreur Absolue Moyenne)
+- RMSE (Racine de l'Erreur Quadratique Moyenne)
+- MAPE (Erreur en Pourcentage Absolue Moyenne)
+- sMAPE (Erreur Symétrique en Pourcentage Absolue Moyenne)
+
+**Challenge M5 :**
+- WRMSSE (Erreur Quadratique Moyenne Redimensionnée Pondérée)
+
+**Visualisations :**
+- Tableaux d'erreur
+- Graphiques Prédictions vs Réelles
+- Analyses des résidus
+
+---
+
+## 🚀 Installation et Exécution
+
+### Prérequis
+- Python 3.9+
+- Matériel recommandé : GPU pour les modèles de deep learning
+
+### Installation des Dépendances
+```bash
+# Créer un environnement virtuel
+python -m venv venv
+
+# Activer l'environnement
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+# Installer les packages requis
+pip install numpy pandas matplotlib seaborn scikit-learn statsmodels prophet
+pip install tensorflow torch torchvision torchaudio
+pip install jupyter notebook
+```
+
+### Exécution des Notebooks
+```bash
+# Lancer Jupyter
 jupyter notebook
 
+# Ouvrir dans l'ordre :
+# 1. Deep_Time_Series.ipynb
+# 2. M5_Forecasting.ipynb
+```
 
-Open:
+---
 
-Deep_Time_Series.ipynb
+## 📈 Résultats
 
-M5_Forecasting.ipynb
+### Découvertes Deep Learning
+- **LSTM et GRU** fournissent des résultats solides pour la prévision à moyen terme
+- **CNN-1D** améliore les performances pour les séries à mémoire courte et bruyante
+- **Transformers** excellent dans la prévision de longues séquences
 
-🧪 Results Summary
-📈 Deep Learning Findings
+### Résultats M5 Forecasting
+- L'ingénierie des caractéristiques améliore considérablement la précision
+- Le modèle le plus performant combine :
+  - Encodeur-décodeur de deep learning
+  - Réconciliation hiérarchique
+  - Caractéristiques calendaires et de prix
 
-LSTM and GRU models provide strong results for medium-term forecasting.
+---
 
-CNN-1D improves performance for noisy short-memory series.
+## 💪 Points Forts du Projet
 
-Transformers excel in long-sequence forecasting.
+### ✅ Structure Professionnelle
+- Pipeline de prévision extrêmement bien structuré
+- Exploration et modélisation de qualité professionnelle
+- Intégration complète des techniques statistiques et de deep learning
 
-🛍️ M5 Forecasting Results
+### ✅ Reproductibilité et Praticité
+- Workflow détaillé et reproductible
+- Prêt pour le déploiement (modèles exportés + scripts)
+- Documentation claire et complète
 
-Feature engineering dramatically boosts accuracy.
+---
 
-The best-performing model combines:
+## 👨‍💻 Auteur
 
-Deep learning encoder–decoder
+**Oussama Fahim**  
+*Étudiant en intelligence artificielle*  
+**ENSAM – Université Moulay Ismail**  
+Meknès, Maroc
 
-Hierarchical reconciliation
+### 🔗 Contact
+- **Email** : Oussamafahim2017@gmail.com
+- **Téléphone** : +212 645 468 306
+- **GitHub** : [github.com/oussama-fahim](https://github.com/oussama-fahim)
 
-Calendar + price features
+---
 
-📌 Key Strengths of the Project
+<div align="center">
 
-✔ Extremely well-structured forecasting pipeline
-✔ Professional-grade exploration and modeling
-✔ Full integration of statistical and deep learning techniques
-✔ Detailed reproducible workflow
-✔ Ready for deployment (exported models + scripts)
+**"La prévision est très difficile, surtout si elle concerne l'avenir."**  
+*– Niels Bohr*
 
-🛠️ Future Improvements
-
-Add AutoML for time series (Kats, Darts)
-
-Serve models using FastAPI or Streamlit
-
-Add multi-step probabilistic forecasting with:
-
-DeepAR
-
-Temporal Fusion Transformers (TFT)
-
-Use mlflow for experiment tracking
-
-👤 Author
-
-Oussama Fahim
-ENSAM – Moulay Ismail University
-Deep Learning & Time Series Modeling
+</div>
