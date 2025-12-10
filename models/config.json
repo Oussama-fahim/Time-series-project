@@ -1,0 +1,13 @@
+{
+    "lookback": 7,
+    "forecast_horizon": 3,
+    "train_split": 0.7,
+    "val_split": 0.15,
+    "epochs": 50,
+    "batch_size": 32,
+    "num_products": 10,
+    "num_days": 60,
+    "total_sequences": 2856,
+    "best_model": "RNN",
+    "best_rmse": 0.24258066768951903
+}
